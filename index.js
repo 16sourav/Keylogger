@@ -4,17 +4,21 @@ const startBtn = document.getElementById('start-btn');
 const stopBtn = document.getElementById('stop-btn');
 
 startBtn.addEventListener("click",()=>{
+    logDiv.textContent="";
+    stateDiv.textContent="";
     document.addEventListener("keydown",handleDown);
     document.addEventListener("keyup",handleUp);
-    startBtn.disabled;
+    startBtn.style.color="black";
+    stopBtn.style.color="red";
 })
 
 stopBtn.addEventListener("click",()=>{
     document.removeEventListener("keydown",handleDown);
     document.removeEventListener("keyup",handleUp);
-    logDiv.textContent="Press Start to see Key Logging";
-    stateDiv.textContent="Press Start to see Key Logging";
-    stopBtn.disabled;
+    logDiv.textContent="Press Start to start Logging";
+    stateDiv.textContent="Press start to start Logging";
+    startBtn.style.color="red";
+    stopBtn.style.color="black";
 })
 
 function handleDown(e){
